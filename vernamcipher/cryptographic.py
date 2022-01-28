@@ -25,7 +25,6 @@ class Cryptographic:
             key (str): Truly random key or ASCII alphanumerical characters.
         """
 
-
         alpha_numerical = string.ascii_letters + string.digits
         key = ''
 
@@ -35,18 +34,18 @@ class Cryptographic:
         return key
 
     @staticmethod
-    def exclusive_operations(plaintext: str, key: str) -> str:
+    def exclusive_operations(data: str, key: str) -> str:
         """
         Converts plaintext and key into binary ASCII representation and applies XOR operations.
 
         Args:
-            plaintext (str): string to be encrypted.
+            data (str): string to be encrypted or decrypted.
             key (str): generated or imported ASCII key to apply encryption with.
         Returns:
             ciphertext_string (str): XOR operated ASCII ciphertext.
         """
 
-        if len(key) < len(plaintext):
+        if len(key) < len(data):
             raise ValueError("Generated key must be same length to or longer than the plaintext.")
 
         plaintext_binary = []
@@ -64,13 +63,13 @@ class Cryptographic:
 
             key_binary.append(binary_key)
 
-        if len(plaintext) > 1:
-            for letter_plaintext in plaintext:
+        if len(data) > 1:
+            for letter_plaintext in data:
                 binary_plaintext = f'{ord(letter_plaintext):07b}'
 
                 plaintext_binary.append(binary_plaintext)
         else:
-            binary_plaintext = f'{ord(plaintext):07b}'
+            binary_plaintext = f'{ord(data):07b}'
 
             plaintext_binary.append(binary_plaintext)
 
