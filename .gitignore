@@ -1,0 +1,4 @@
+# Restrict following files
+
+.idea/*
+*.idea/
