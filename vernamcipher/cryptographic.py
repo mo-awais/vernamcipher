@@ -9,7 +9,6 @@ Website: https://www.mohammedawais.me/
 """
 
 import secrets
-import string
 import re
 
 
@@ -25,11 +24,10 @@ class Cryptographic:
             key (str): Truly random key or ASCII alphanumerical characters.
         """
 
-        alpha_numerical = string.ascii_letters + string.digits
-        key = ''
+        key = secrets.token_urlsafe(length)
 
-        for x in range(length):
-            key += secrets.choice(alpha_numerical)
+        while not key.isalnum():
+            key = secrets.token_urlsafe(length)
 
         return key
 
