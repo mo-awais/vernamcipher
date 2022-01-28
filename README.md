@@ -34,3 +34,46 @@ Alice would then use the ciphertext **f** against the key *+* and follow the sam
 Ciphers which use computer-generated random keys can be broken since mathematically generated random numbers are not truly random, they only appear to be.
 A truly random sequence must be collected from a physical and unpredictable phenomenon such as white noise, the time of a hard disk or radioative decay.
 To ensure it is mathematically impossible to break, truly random keys must be used.
+
+# Installation
+vernamecipher does not require any additional dependencies and can work on a fresh Python install, without any additional requirements.
+
+## Requirements
+
+Python 3.8+
+macOS or Linux (Windows not officially supported, but might work)
+
+```pip3 install vernamcipher```
+
+# Usage
+
+### Generate a truly-random key.
+
+```python
+from vernamcipher.cryptographic import Cryptographic
+
+plaintext = "Hello World"
+key = Cryptographic.generate_key(len(plaintext))
+```
+
+### Encrypt
+
+```python
+from vernamcipher.cryptographic import Cryptographic
+
+plaintext = "Hello World"
+key = Cryptographic.generate_key(len(plaintext))
+
+encrypted_data = Cryptographic.exclusive_operations(plaintext, key)
+```
+
+### Decrypt
+
+```python
+from vernamcipher.cryptographic import Cryptographic
+
+encrypted = "tTuPl"
+key = Cryptographic.generate_key(len(encrypted))
+
+decrypted_data = Cryptographic.exclusive_operations(encrypted, key)
+```
