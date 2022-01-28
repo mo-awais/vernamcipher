@@ -5,7 +5,7 @@ All other ciphers and encryption methods are based on computational security and
 
 # Encryption Process
 
-A **one-time pad** or **key** is used to encrypt plaintext. The ne-time pad must be equal to or longer in characters than the plaintext.
+A **one-time pad** or **key** is used to encrypt plaintext. The one-time pad must be equal to or longer in characters than the plaintext.
 In practice, the key must be truly random and used only once. Once for encryption and once for decryption.
 Since the key is random, so will be the distribution of the characters meaning that no amount of cryptanalysis will produce any meaningful results.
 
@@ -28,3 +28,9 @@ An **XOR** operation is carried out between the binary character value of the fi
 
 As you can see from the table above, the **XOR** operations generate a 7-bit binary value of **1100110**, which corresponds to the letter **f** on the ASCII table.
 Alice would then use the ciphertext **f** against the key *+* and follow the same process to decrypt the ciphertext.
+
+# Cryptanalysis and Perfect Security
+
+Ciphers which use computer-generated random keys can be broken since mathematically generated random numbers are not truly random, they only appear to be.
+A truly random sequence must be collected from a physical and unpredictable phenomenon such as white noise, the time of a hard disk or radioative decay.
+To ensure it is mathematically impossible to break, truly random keys must be used.
