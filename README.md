@@ -47,7 +47,7 @@ macOS or Linux (Windows not officially supported, but might work)
 
 # Usage
 
-### Generate a truly-random key.
+### Generate a truly-random key
 
 ```python
 from vernamcipher.cryptographic import Cryptographic
