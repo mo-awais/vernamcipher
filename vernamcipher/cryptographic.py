@@ -16,6 +16,16 @@ import re
 class Cryptographic:
     @staticmethod
     def generate_key(length: int) -> str:
+        """
+        Uses secret.py to generate a truly random key of a specified length, from an ASCII string of letter and digits.
+
+        Args:
+            length (int): required length of key.
+        Returns:
+            key (str): Truly random key or ASCII alphanumerical characters.
+        """
+
+
         alpha_numerical = string.ascii_letters + string.digits
         key = ''
 
@@ -26,6 +36,19 @@ class Cryptographic:
 
     @staticmethod
     def exclusive_operations(plaintext: str, key: str) -> str:
+        """
+        Converts plaintext and key into binary ASCII representation and applies XOR operations.
+
+        Args:
+            plaintext (str): string to be encrypted.
+            key (str): generated or imported ASCII key to apply encryption with.
+        Returns:
+            ciphertext_string (str): XOR operated ASCII ciphertext.
+        """
+
+        if len(key) < len(plaintext):
+            raise ValueError("Generated key must be same length to or longer than the plaintext.")
+
         plaintext_binary = []
         key_binary = []
         ciphertext = []
