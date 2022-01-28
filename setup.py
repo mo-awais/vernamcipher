@@ -18,6 +18,6 @@ setup(
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.8",
-        "License :: OSI Approved :: GNU Affero General Public License v3.0 (AGPLv3)",
+        "License :: OSI Approved :: GNU Affero General Public License v3",
     ],
 )
