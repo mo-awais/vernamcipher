@@ -35,6 +35,11 @@ Ciphers which use computer-generated random keys can be broken since mathematica
 A truly random sequence must be collected from a physical and unpredictable phenomenon such as white noise, the time of a hard disk or radioative decay.
 To ensure it is mathematically impossible to break, truly random keys must be used.
 
+# Disclaimer
+
+Although this is an implementation of the Vernam Cipher, no computer can generate truly-random values without using external resources
+such as white noise or radioactive decay. Instead, this implementation will create cryptographically-strong and random keys.
+
 # Installation
 vernamecipher does not require any additional dependencies and can work on a fresh Python install, without any additional requirements.
 
@@ -47,7 +52,7 @@ macOS or Linux (Windows not officially supported, but might work)
 
 # Usage
 
-### Generate a truly-random key
+### Generate a cryptographically-strong, random key
 
 ```python
 from vernamcipher.cryptographic import Cryptographic
