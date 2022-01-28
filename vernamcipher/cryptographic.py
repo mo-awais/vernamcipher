@@ -9,17 +9,23 @@ Website: https://www.mohammedawais.me/
 """
 
 import secrets
+import string
 import re
 
 
 class Cryptographic:
     @staticmethod
     def generate_key(length: int) -> str:
+        alpha_numerical = string.ascii_letters + string.digits
+        key = ''
 
-        return secrets.token_urlsafe(length)
+        for x in range(length):
+            key += secrets.choice(alpha_numerical)
+
+        return key
 
     @staticmethod
-    def plaintext_operations(plaintext: str, key: str) -> str:
+    def exclusive_operations(plaintext: str, key: str) -> str:
         plaintext_binary = []
         key_binary = []
         ciphertext = []
