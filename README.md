@@ -51,9 +51,9 @@ vernamcipher does not require any additional dependencies and can work on a fres
 
 ## Requirements
 
-Python 3.8+
-macOS or Linux (Windows not officially supported, but might work)
-Working internet connect required to access QRNG when generating keys.
+    - Python 3.8+
+    - macOS or Linux (Windows not officially supported, but might work)
+    - Working internet connect required to access QRNG when generating keys.
 
 ```pip3 install vernamcipher```
 
