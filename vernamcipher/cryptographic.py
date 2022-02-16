@@ -3,33 +3,39 @@ Copyright (c) 2022 Mohammed Awais
 All Rights Reserved
 
 Author: Mohammed Awais
-Email: me@mohammedawais.me
+Email: awais@mohammedawais.me
 GitHub: https://github.com/mo-awais
 Website: https://www.mohammedawais.me/
 """
 
-import secrets
+import urllib.error
+import urllib.request as request
 import re
 
 
 class Cryptographic:
     @staticmethod
-    def generate_key(length: int) -> str:
+    def generate_key() -> str:
         """
-        Uses secret.py to generate a truly random key of a specified length, from an ASCII string of letter and digits.
+        Uses the Quantum Random Number Generator (QRNG), provided by the Australian National University. The QRNG uses
+        sophisticated quantum physics to generate truly-random alpahnumeric strings.
 
-        Args:
-            length (int): required length of key.
+        The QRNG only generates a 1024-block. All plaintext must be 1024 blocks.
+
         Returns:
             key (str): Truly random key or ASCII alphanumerical characters.
         """
 
-        key = secrets.token_urlsafe(length)
+        try:
+            key_request = request.urlopen("https://qrng.anu.edu.au/wp-content/plugins/colours-plugin/get_block_alpha.php")
+            key = key_request.readline().decode()
 
-        while not key.isalnum():
-            key = secrets.token_urlsafe(length)
+            while not key.isalnum():
+                key = key.replace("_", "")
 
-        return key
+            return key
+        except (urllib.error.URLError, urllib.error.HTTPError, urllib.error.ContentTooShortError) as error:
+            return error
 
     @staticmethod
     def exclusive_operations(data: str, key: str) -> str:
@@ -38,7 +44,7 @@ class Cryptographic:
 
         Args:
             data (str): string to be encrypted or decrypted.
-            key (str): generated or imported ASCII key to apply encryption with.
+            key (str): generated or imported truly-random key to apply encryption with.
         Returns:
             ciphertext_string (str): XOR operated ASCII ciphertext.
         """
