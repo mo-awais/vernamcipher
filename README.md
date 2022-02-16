@@ -44,7 +44,7 @@ To ensure it is mathematically impossible to break, truly random keys must be us
 
 # Disclaimer
 
-The truly-random keys are NOT generated on the computer or system being used. They are provided by the ANU QRNG. No computer can generate truly-random values on cryptographically strong.
+The truly-random keys are NOT generated on the computer or system being used. They are provided by the ANU QRNG. No computer can generate truly-random values only cryptographically strong.
 
 # Installation
 vernamcipher does not require any additional dependencies and can work on a fresh Python install, without any additional requirements.
