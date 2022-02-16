@@ -1,3 +1,10 @@
+# Updates!
+
+The vernamcipher project is now using truly-random keys. Credit to The Australian National University for their Quantum Random Number Generator (no affiliation).
+With this latest update, the vernamcipher package is officially using the strongest encryption methods with truly-random keys.
+
+Please refer below for an in-depth explanation and usage examples.
+
 # What is the Vernam Cipher?
 
 The Vernam Cipher was invented in 1917 by the American scientist Gilbert Vernam. It is the only cipher still proven to be unbreakable.
@@ -37,16 +44,16 @@ To ensure it is mathematically impossible to break, truly random keys must be us
 
 # Disclaimer
 
-Although this is an implementation of the Vernam Cipher, no computer can generate truly-random values without using external resources
-such as white noise or radioactive decay. Instead, this implementation will create cryptographically-strong and random keys.
+The truly-random keys are NOT generated on the computer or system being used. They are provided by the ANU QRNG. No computer can generate truly-random values on cryptographically strong.
 
 # Installation
-vernamecipher does not require any additional dependencies and can work on a fresh Python install, without any additional requirements.
+vernamcipher does not require any additional dependencies and can work on a fresh Python install, without any additional requirements.
 
 ## Requirements
 
 Python 3.8+
 macOS or Linux (Windows not officially supported, but might work)
+Working internet connect required to access QRNG when generating keys.
 
 ```pip3 install vernamcipher```
 
@@ -57,8 +64,7 @@ macOS or Linux (Windows not officially supported, but might work)
 ```python
 from vernamcipher.cryptographic import Cryptographic
 
-plaintext = "Hello World"
-key = Cryptographic.generate_key(len(plaintext))
+key = Cryptographic.generate_key()
 ```
 
 ### Encrypt
@@ -67,7 +73,7 @@ key = Cryptographic.generate_key(len(plaintext))
 from vernamcipher.cryptographic import Cryptographic
 
 plaintext = "Hello World"
-key = Cryptographic.generate_key(len(plaintext))
+key = Cryptographic.generate_key()
 
 encrypted_data = Cryptographic.exclusive_operations(plaintext, key)
 ```
@@ -78,7 +84,7 @@ encrypted_data = Cryptographic.exclusive_operations(plaintext, key)
 from vernamcipher.cryptographic import Cryptographic
 
 encrypted = "tTuPl"
-key = Cryptographic.generate_key(len(encrypted))
+key = Cryptographic.generate_key()
 
 decrypted_data = Cryptographic.exclusive_operations(encrypted, key)
 ```
