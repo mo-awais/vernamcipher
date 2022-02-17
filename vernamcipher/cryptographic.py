@@ -13,7 +13,7 @@ import urllib.request as request
 import re
 
 
-class Cryptographic:
+class CryptographicV2:
     @staticmethod
     def generate_key() -> str:
         """
@@ -57,23 +57,13 @@ class Cryptographic:
         ciphertext = []
         ciphertext_string = ''
 
-        if len(key) > 1:
-            for letter_key in key:
-                binary_key = f'{ord(letter_key):07b}'
-
-                key_binary.append(binary_key)
-        else:
-            binary_key = f'{ord(key):07b}'
+        for letter_key in key:
+            binary_key = f'{ord(letter_key):07b}'
 
             key_binary.append(binary_key)
 
-        if len(data) > 1:
-            for letter_plaintext in data:
-                binary_plaintext = f'{ord(letter_plaintext):07b}'
-
-                plaintext_binary.append(binary_plaintext)
-        else:
-            binary_plaintext = f'{ord(data):07b}'
+        for letter_plaintext in data:
+            binary_plaintext = f'{ord(letter_plaintext):07b}'
 
             plaintext_binary.append(binary_plaintext)
 
