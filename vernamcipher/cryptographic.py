@@ -13,7 +13,7 @@ import urllib.request as request
 import re
 
 
-class CryptographicV2:
+class Cryptographic:
     @staticmethod
     def generate_key() -> str:
         """
