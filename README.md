@@ -49,11 +49,10 @@ The truly-random keys are NOT generated on the computer or system being used. Th
 # Installation
 vernamcipher requires one dependency listed below:
 
-    - requests>=2.27.1
-
 ## Requirements
 
     - Python 3.8+
+    - requests>=2.27.1
     - macOS or Linux (Windows not officially supported)
     - Working internet connection required to access QRNG when generating keys.
 
