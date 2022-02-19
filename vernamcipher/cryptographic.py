@@ -8,14 +8,14 @@ GitHub: https://github.com/mo-awais
 Website: https://www.mohammedawais.me/
 """
 
-import urllib.error
-import urllib.request as request
 import re
+import requests
+from requests.exceptions import RequestException
 
 
 class Cryptographic:
     @staticmethod
-    def generate_key() -> str:
+    def generate_key() -> RequestException or str:
         """
         Uses the Quantum Random Number Generator (QRNG), provided by the Australian National University. The QRNG uses
         sophisticated quantum physics to generate truly-random alpahnumeric strings.
@@ -27,14 +27,14 @@ class Cryptographic:
         """
 
         try:
-            key_request = request.urlopen("https://qrng.anu.edu.au/wp-content/plugins/colours-plugin/get_block_alpha.php")
-            key = key_request.readline().decode()
+            key_request = requests.get("https://qrng.anu.edu.au/wp-content/plugins/colours-plugin/get_block_alpha.php")
+            key = key_request.text
 
             while not key.isalnum():
                 key = key.replace("_", "")
 
             return key
-        except (urllib.error.URLError, urllib.error.HTTPError, urllib.error.ContentTooShortError) as error:
+        except requests.exceptions.RequestException as error:
             return error
 
     @staticmethod
