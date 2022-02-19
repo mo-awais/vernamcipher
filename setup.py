@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as readme_file:
     readme = readme_file.read()
 
-requirements = []
+requirements = ["requests>=2.27.1"]
 
 setup(
     name="vernamcipher",
-    version="1.0.4",
+    version="1.1.4",
     author="Mohammed Awais",
     author_email="awais@mohammedawais.me",
     description="A Python implementation of truly-random Vernam Cipher encryption.",
