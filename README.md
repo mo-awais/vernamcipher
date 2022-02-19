@@ -47,15 +47,17 @@ To ensure it is mathematically impossible to break, truly random keys must be us
 The truly-random keys are NOT generated on the computer or system being used. They are provided by the ANU QRNG. No computer can generate truly-random values only cryptographically strong.
 
 # Installation
-vernamcipher does not require any additional dependencies and can work on a fresh Python install, without any additional requirements.
+vernamcipher requires one dependency listed below:
+
+    - requests>=2.27.1
 
 ## Requirements
 
-    - Python 3.8
-    - macOS or Linux (Windows not officially supported, but might work)
+    - Python 3.8+
+    - macOS or Linux (Windows not officially supported)
     - Working internet connection required to access QRNG when generating keys.
 
-```pip3 install vernamcipher```
+```pip install vernamcipher```
 
 # Usage
 
