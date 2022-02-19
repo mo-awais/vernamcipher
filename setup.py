@@ -7,7 +7,7 @@ requirements = []
 
 setup(
     name="vernamcipher",
-    version="1.0.3",
+    version="1.0.4",
     author="Mohammed Awais",
     author_email="awais@mohammedawais.me",
     description="A Python implementation of truly-random Vernam Cipher encryption.",
